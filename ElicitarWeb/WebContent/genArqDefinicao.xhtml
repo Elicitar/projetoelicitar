@@ -18,13 +18,14 @@
 					<p:panel header="Gerar arquivo de definição de formulários">
 						<h:panelGrid id="pnGenForms" columns="2"
 							style="margin-bottom:10px" cellpadding="1">
-							<p:outputLabel id="lbTipForm" for="cbformtoGen">Formulários identificados</p:outputLabel>
+							<p:outputLabel id="lbTipForm">Formulários identificados</p:outputLabel>
 							<p:selectOneMenu id="cbformtoGen"
-								value="#{fileGenBean.formToGen}" required="true" requiredMessage="É necessário escolher um formulário para geração">
+								value="#{fileGenBean.formToGen}" required="false">
+								<p:ajax listener="#{fileGenBean.onChangeForm}"/>
 								<f:selectItem itemLabel="selecione ..." itemValue="" />
-								<f:selectItems value="#{fileGenBean.allReqForms}" />
-								
+								<f:selectItems value="#{fileGenBean.allReqForms}" />								
 							</p:selectOneMenu>
+							
 							<p:commandButton id="genJSON"
 								value="Gerar arquivo JSON de definição" ajax="false">
 								<p:fileDownload value="#{fileGenBean.gerarJSON}" />

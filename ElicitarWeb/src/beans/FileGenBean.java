@@ -17,6 +17,7 @@ import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 
 import requirementExtract.StaticBase;
+import requirements.ConstsRequisitos;
 import requirements.RequisitoBase;
 import requirements.TipoDeRequisito;
 import exceptions.TipoDeReqisitoInvalidoException;
@@ -174,5 +175,10 @@ public class FileGenBean implements Serializable {
 
 	public void setListOfFormsToGen(String[] listOfFormsToGen) {
 		this.listOfFormsToGen = listOfFormsToGen;
+	}
+	
+	
+	public void onChangeForm(){
+		
 	}
 }
