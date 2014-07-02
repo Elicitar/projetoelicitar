@@ -9,7 +9,7 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 public class MenuBean {
-	private final String versaoApp = "Dev 0.8";
+	private final String versaoApp = "Dev 0.9";
 	
 
 	public void addMessage(String summary) {
