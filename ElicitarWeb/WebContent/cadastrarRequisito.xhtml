@@ -56,7 +56,7 @@
 					toggleable="true" toggleOrientation="vertical"
 					toggleTitle="Ocultar grid" >
 					<p:scrollPanel mode="native" style="width:100%;height:300px">
-						<p:dataTable id="gridRequisitos" var="reqs"
+						<p:dataTable id="gridRequisitos" var="reqs" disabledSelection="true"
 							value="#{cadastrarRequisitoBean.requisitos}"
 							rowKey="#{reqs.nome}"
 							selection="#{cadastrarRequisitoBean.selectedReqs}"
