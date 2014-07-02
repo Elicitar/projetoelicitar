@@ -36,7 +36,8 @@ public class CadastrarRequisitoBean implements Serializable{
 	}
 
 	public void setActualReq(RequisitoBase actualReq) {
-		this.actualReq = actualReq;
+		RequisitoBase r = StaticBase.tratadorDeArquivo.getRequisitoByName(actualReq.getNome());		
+		this.actualReq = r;
 	}
 
 	public String getIniDesc() {
@@ -106,10 +107,14 @@ public class CadastrarRequisitoBean implements Serializable{
 		}
 		
 		String name = actualReq.getNome();
+		RequisitoBase r = null;
 		if (name != null) {
-			if (StaticBase.tratadorDeArquivo.getRequisitoByName(name) == null)
-				StaticBase.tratadorDeArquivo.getRequisitos().add(actualReq);
-			ReqDB.getInstance().addReqToDB(actualReq);
+			r = StaticBase.tratadorDeArquivo.getRequisitoByName(name);
+			if (r != null){
+				r.assign(actualReq);
+			}
+			ReqDB.getInstance().addReqToDB(actualReq);			
+			
 		}
 		return "cadSucessfull.jsf";
 	}

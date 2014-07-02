@@ -83,6 +83,13 @@ public class RequisitoBase implements IRequisito {
 		// TODO Auto-generated constructor stub
 	}
 
+	public void assign(RequisitoBase r){
+		this.setNome(r.getNome());
+		this.setObjetivo(r.getObjetivo());
+		this.setTipoRequisitoStr(r.getTipoRequisitoStr());
+		this.setDecricao(r.getDecricao());
+	}
+	
 	public void setGlobalId(int globalId) {
 		this.globalId = globalId;
 	}

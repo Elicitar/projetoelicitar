@@ -70,7 +70,7 @@
 							<p:column headerText="Descrição" filterBy="fullDesc">#{reqs.fullDesc}</p:column>
 							<p:column headerText="Editar">
 								<p:commandButton id="btnedit" update=":frmCadReq:pnCadReq"
-									icon="ui-icon-pencil" title="Editar" immedate="true">
+									icon="ui-icon-pencil" title="Editar">
 									<f:setPropertyActionListener value="#{reqs}"
 										target="#{cadastrarRequisitoBean.actualReq}" />
 								</p:commandButton>
