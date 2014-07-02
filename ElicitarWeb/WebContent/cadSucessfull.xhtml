@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+	<style>
+.semBorda tr,.semBorda td {
+	border: none !important;
+}
+</style>
+	<title>Cadastro realizado com sucesso</title>
+</h:head>
+<h:body>
+
+	<ui:composition template="/template.xhtml">
+		<ui:define name="conteudo">
+			<h:form>
+				<center>
+					<p:panelGrid columns="2" styleClass="semBorda">
+						<p:panelGrid columns="1" styleClass="semBorda">
+							<p:outputLabel value="Sucesso!"
+								style="color:rgb(55,120,200); font-weight:bold;font-size:x-large"></p:outputLabel>
+							<p:outputLabel value="Seu requisito foi cadastrado com sucesso."
+								style="color:rgb(55,120,200); font-weight:bold;font-size:medium"></p:outputLabel>
+							<p:outputLabel value="Favor verifique as informações abaixo:"
+								style="color:rgb(55,120,200); font-weight:bold;font-size:medium"></p:outputLabel>
+						</p:panelGrid>
+						<p:graphicImage id="IconSucess" value="/images/icones/sucess.png"
+							height="100" />
+					</p:panelGrid>
+					<p:spacer width="100%" height="50" />
+					<p:outputLabel value="Requisito"></p:outputLabel>
+					<p:panelGrid columns="2">
+						<p:outputLabel value="Nome" />
+						<p:outputLabel value="#{cadastrarRequisitoBean.actualReq.nome}"></p:outputLabel>
+						<p:outputLabel value="Tipo" />
+						<p:outputLabel
+							value="#{cadastrarRequisitoBean.actualReq.tipoRequisitoStr}"></p:outputLabel>
+						<p:outputLabel value="Objetivo" />
+						<p:outputLabel
+							value="#{cadastrarRequisitoBean.actualReq.objetivo}"></p:outputLabel>
+						<p:outputLabel value="Descrição" />
+						<p:outputLabel
+							value="#{cadastrarRequisitoBean.actualReq.fullDesc}"></p:outputLabel>
+					</p:panelGrid>
+				</center>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>gerar</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/template.xhtml">
+		<ui:define name="conteudo">
+			<h:form enctype="multipart/form-data">
+				<center>
+					<p:messages id="messages" showDetail="true" autoUpdate="true"
+						closable="true" />
+					<p:outputLabel>Selecione o arquivo de definição </p:outputLabel>
+					<p:panelGrid styleClass="semBorda" columns="2">
+						<p:fileUpload widgetVar="upload" process="@this"
+							fileUploadListener="#{genHtmlBean.handleFileUpload}"
+							multiple="false" mode="advanced"
+							showButtons="true" auto="false" 
+							allowTypes="/(\.|\/)(json|xml)$/" required="true"
+							update="messages" 
+							requiredMessage="Favor informar um arquivo válido"
+							invalidSizeMessage="Insira um arquivo de definição imagem menor de 4Mb"
+							fileLimitMessage="Apenas o envio de um arquivo é permitido"
+							label="Procurar" uploadLabel="Enviar" cancelLabel="Cancelar"
+							>
+						</p:fileUpload>
+						<p:commandButton id="genHtmlid" value="Gerar" ajax="false">
+							<p:fileDownload value="#{genHtmlBean.gerarHtml}" />
+						</p:commandButton>
+					</p:panelGrid>
+				</center>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

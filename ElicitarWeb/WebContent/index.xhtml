@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Gerador de tela baseada em padrões de requisito</title>
+	<style>
+.semBorda tr,.semBorda td {
+	border: none !important;
+}
+</style>
+</h:head>
+<h:body>
+	<h:form>
+
+
+		<p:panel id="cabecalho">
+			<center>
+				<p:messages id="messages" showDetail="true" autoUpdate="true"
+					closable="true" />
+
+				<p:graphicImage id="imgLogo" value="/images/geral/logo_final.png"
+					height="200" style="left:50%;" />
+
+				<h3 align="center">Um gerador de tela baseada em padrões de
+					requisito</h3>
+
+
+				<p:panelGrid columns="1" styleClass="semBorda">
+					<p:panelGrid columns="7" styleClass="semBorda">
+						<p:outputLabel value="Cadastrar requisito" />
+						<p:outputLabel value="Gerar definição" />
+						<p:outputLabel value="Gerar HTML" />
+						<p:outputLabel value="Enviar Feedback" />
+						<p:outputLabel value="Abrir Proposta" />
+						<p:outputLabel value="Novidades da versão" />
+						<p:outputLabel value="Abrir Ajuda" />
+						<h:outputLink value="cadastrarRequisito.jsf"
+							title="Cadastrar requisito">
+							<p:graphicImage id="accCadReq"
+								value="/images/icones/cadastrar.png" height="100" />
+						</h:outputLink>
+						<h:outputLink value="genArqDefinicao.jsf" title="Gerar Definição">
+							<p:graphicImage id="accGenArqDef"
+								value="/images/icones/GerarDefinicao.png" height="100" />
+						</h:outputLink>
+						<h:outputLink value="genHtml.jsf">
+							<p:graphicImage id="accGenHtml"
+								value="/images/icones/gerarHTML.jpg" title="Gerar HTML"
+								height="100" />
+						</h:outputLink>
+						<h:outputLink
+							value="https://docs.google.com/forms/d/1hLwWHRibPFZ_f-kDKjEAEwmhVFl8A7CXsysB6KoOe74/viewform"
+							target="blank">
+							<p:graphicImage id="accCEnvFeedback"
+								value="/images/icones/mail.png" title="Enviar Feedback"
+								height="100" />
+						</h:outputLink>
+						<p:commandLink action="#{menuBean.proposta}"
+							type="application/pdf" target="blank">
+							<p:graphicImage id="accProposta"
+								value="/images/icones/propostaTCC.png" title="Proposta de TCC"
+								height="100">
+							</p:graphicImage>
+						</p:commandLink>
+						<h:outputLink value="https://github.com/asengardeon/Asengardeon/wiki/Projeto-Elicitar">
+							<p:graphicImage id="accNovidades"
+								value="/images/icones/novidadesVersao.png" title="Novidades da versão"
+								height="100" />
+						</h:outputLink>
+						<p:commandLink action="#{menuBean.help}">
+							<p:graphicImage id="accHelp" value="/images/icones/help.png"
+								title="Ajuda" height="100" />
+						</p:commandLink>
+					</p:panelGrid>
+				</p:panelGrid>
+
+
+				<p:panelGrid columns="1" styleClass="semBorda">
+					<p:outputLabel styleClass="semBorda">Este é o protótipo do Trabalho de Conclusão da Curso em Ciência da Computação de Leandro Vilson Battisti.
+							Aconselha-se a leitura da ajuda antes de seu uso.
+							Caso esteja interessado em saber um pouco mais sobre o projeto, leia a proposta apresentada para o desenvolvimento deste protótipo.
+</p:outputLabel>
+
+					<p:outputLabel
+						value="Solicito que após o uso do protótipo você responda o questionário pressionando em ''Enviar feedback''."></p:outputLabel>
+
+				</p:panelGrid>
+
+				<p:panelGrid columns="5" style="position: absolute;	bottom: 0;">
+					<h:outputLink value="http://aws.amazon.com/pt/" target="blank">
+						<p:graphicImage id="poweredByImageAWS"
+							value="/images/poweredby/AWS.jpg"
+							title="Powered by Amazon Web Services" height="35" />
+					</h:outputLink>
+					<h:outputLink value="http://cogroo.sourceforge.net/" target="blank">
+
+						<p:graphicImage id="poweredByImageCogroo"
+							value="/images/poweredby/cogroo.jpg" title="Powered by Cogroo"
+							height="35" />
+					</h:outputLink>
+					<h:outputLink value="http://www.mysql.com/" target="blank">
+						<p:graphicImage id="poweredByImageMysql"
+							value="/images/poweredby/mysql.png" title="Powered by Mysql"
+							height="35" />
+					</h:outputLink>
+					<h:outputLink value="http://www.primafaces.org" target="blank">
+						<p:graphicImage id="poweredbyprimefaces"
+							value="/images/poweredby/Primefaces.png"
+							title="Powered by Primefaces" height="35" />
+					</h:outputLink>
+					<h:outputLink value="http://velocity.apache.org/" target="blank">
+						<p:graphicImage id="poweredByImagevelocity"
+							value="/images/poweredby/velocity.gif"
+							title="Powered by Velocity" height="35" />
+					</h:outputLink>
+				</p:panelGrid>
+				<p:spacer height="40"></p:spacer>
+				<p:panelGrid columns="1" id="gridRodape" styleClass="semBorda">
+					<p:outputLabel
+						value="Dúvidas ou sugestões? Mande um e-mail projetoelicitar@gmail.com"></p:outputLabel>
+					<p:outputLabel value="Projeto Elicitar versão #{menuBean.versao}"></p:outputLabel>
+				</p:panelGrid>
+			</center>
+		</p:panel>
+
+	</h:form>
+</h:body>
+</html>
+
+

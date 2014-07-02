@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<style>
+.semBorda tr,.semBorda td {
+	border: none !important;
+}
+</style>
+</h:head>
+<h:body>
+	<ui:insert name="conteudo">
+
+    </ui:insert>
+
+	<center>
+		<p:spacer width="100%" height="50" />
+		<p:outputLabel value="Selecione um dos itens abaixo para continuar" />
+		<p:panelGrid columns="4" styleClass="semBorda">
+			<h:outputLink value="cadastrarRequisito.jsf"
+				title="Cadastrar requisito">
+				<p:graphicImage id="accCadReq" value="/images/icones/cadastrar.png"
+					height="40" />
+			</h:outputLink>
+			<h:outputLink value="genArqDefinicao.jsf" title="Gerar Definição">
+				<p:graphicImage id="accGenArqDef"
+					value="/images/icones/GerarDefinicao.png" height="40" />
+			</h:outputLink>
+			<h:outputLink value="genHtml.jsf">
+				<p:graphicImage id="accGenHtml" value="/images/icones/gerarHTML.jpg"
+					title="Gerar HTML" height="40" />
+			</h:outputLink>
+			<h:outputLink value="index.jsf">
+				<p:graphicImage id="accIndex" value="/images/icones/home.png"
+					title="Principal" height="40" />
+			</h:outputLink>
+		</p:panelGrid>
+	</center>
+</h:body>
+</html>

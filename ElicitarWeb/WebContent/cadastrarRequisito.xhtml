@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Cadastrar requisito</title>
+</h:head>
+<h:body>
+	<ui:composition template="/template.xhtml">
+		<ui:define name="conteudo">
+			<h:form id="frmCadReq">
+			<p:messages id="messages" showDetail="true" autoUpdate="true"
+					closable="false" />
+				
+				<p:confirmDialog global="true" showEffect="fade"
+					hideEffect="explode">
+					<p:commandButton value="Sim" type="button"
+						styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+					<p:commandButton value="Não" type="button"
+						styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+				</p:confirmDialog>
+
+
+				<p:panel id="pnCadReq" header="Cadastrar requisito"
+					style="width:100%">
+					<h:panelGrid id="pnGrCadReq" columns="2" style="margin-bottom:10px"
+						cellpadding="1">
+						<p:outputLabel id="lbTipReq" for="cbTipReq">Tipo</p:outputLabel>
+						<p:selectOneMenu id="cbTipReq"
+							value="#{cadastrarRequisitoBean.tipoSelecionado}" required="false" label="Tipo de requisito">
+							<p:ajax listener="#{cadastrarRequisitoBean.onChangeTipo}"
+								update="edCaracReq" />
+							<f:selectItem itemLabel="selecione ..." itemValue="" />
+							<f:selectItems value="#{cadastrarRequisitoBean.tipoRequisitos}" />
+						</p:selectOneMenu>
+						
+						<p:outputLabel id="lbNomeReq" for="edNomeReq">Nome</p:outputLabel>
+						<p:inputText cols="100" id="edNomeReq"
+							value="#{cadastrarRequisitoBean.actualReq.nome}" required="false"  label="Nome do requisito"></p:inputText>
+						
+						<p:outputLabel id="lbobjetivoReq">Objetivo</p:outputLabel>
+						<p:inputTextarea rows="3" cols="100" id="edObjetivoReq"
+							value="#{cadastrarRequisitoBean.actualReq.objetivo}" label="Objetivo do requisito"></p:inputTextarea>
+						
+						<p:outputLabel id="lbCaracReq" for="edCaracReq">Descrição</p:outputLabel>
+						<p:inputTextarea rows="13" cols="100" id="edCaracReq"
+							value="#{cadastrarRequisitoBean.desc}" requiredMessage="Descrição do requisito é obrigatória"/>
+						<p:commandButton value="Salvar"
+							action="#{cadastrarRequisitoBean.salvar}" id="btnSalvar"
+							update=":frmCadReq" />
+					</h:panelGrid>
+				</p:panel>
+				<p:panel header="Requisitos cadastrados"
+					toggleable="true" toggleOrientation="vertical"
+					toggleTitle="Ocultar grid" >
+					<p:scrollPanel mode="native" style="width:100%;height:300px">
+						<p:dataTable id="gridRequisitos" var="reqs"
+							value="#{cadastrarRequisitoBean.requisitos}"
+							rowKey="#{reqs.nome}"
+							selection="#{cadastrarRequisitoBean.selectedReqs}"
+							selectionMode="single">
+
+							<f:facet name="header"></f:facet>
+							<p:column headerText="Nome" filterBy="nome"
+								filterMatchMode="contains">#{reqs.nome}</p:column>
+							<p:column headerText="Tipo" filterBy="tipoRequisitoStr">#{reqs.tipoRequisitoStr}</p:column>
+							<p:column headerText="Objetivo" filterBy="objetivo">#{reqs.objetivo}</p:column>
+							<p:column headerText="Descrição" filterBy="fullDesc">#{reqs.fullDesc}</p:column>
+							<p:column headerText="Editar">
+								<p:commandButton id="btnedit" update=":frmCadReq:pnCadReq"
+									icon="ui-icon-pencil" title="Editar" immedate="true">
+									<f:setPropertyActionListener value="#{reqs}"
+										target="#{cadastrarRequisitoBean.actualReq}" />
+								</p:commandButton>
+							</p:column>
+							<p:column headerText="Excluir">
+								<p:commandButton id="btndelete" update=":frmCadReq"
+									icon="ui-icon-close" title="excluir"
+									action="#{cadastrarRequisitoBean.excluirRequisito}" validateClient="false">
+									<f:setPropertyActionListener value="#{reqs}"
+										target="#{cadastrarRequisitoBean.actualReq}" />
+									<p:confirm header="Excluir?"
+										message="Deseja excluir o registro?" icon="ui-icon-alert" />
+								</p:commandButton>
+							</p:column>
+						</p:dataTable>
+					</p:scrollPanel>
+				</p:panel>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

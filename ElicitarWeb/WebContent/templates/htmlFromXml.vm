@@ -1,0 +1,124 @@
+<script src="http://max.jotfor.ms/static/jotform.js?3.2.1611" type="text/javascript"></script>
+<script type="text/javascript">
+   JotForm.init(function(){
+      $('input_5').hint('ex: myname@example.com');
+      $('input_10').hint('ex: 23');
+      JotForm.alterTexts({"alphabetic":"This field can only contain letters","alphanumeric":"This field can only contain letters and numbers.","confirmClearForm":"Are you sure you want to clear the form","email":"Enter a valid e-mail address","incompleteFields":"There are incomplete required fields. Please complete them.","lessThan":"Your score should be less than","numeric":"This field can only contain numeric values","pleaseWait":"Please wait...","required":"This field is required.","uploadExtensions":"You can only upload following files:","uploadFilesize":"File size cannot be bigger than:"});
+   });
+</script>
+<link href="http://max.jotfor.ms/static/formCss.css?3.2.1611" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="http://max.jotfor.ms/css/styles/nova.css?3.2.1611" />
+<link type="text/css" media="print" rel="stylesheet" href="http://max.jotfor.ms/css/printForm.css?3.2.1611" />
+<style type="text/css">
+    .form-label{
+        width:150px !important;
+    }
+    .form-label-left{
+        width:150px !important;
+    }
+    .form-line{
+        padding-top:12px;
+        padding-bottom:12px;
+    }
+    .form-label-right{
+        width:150px !important;
+    }
+    .form-all{
+        width:650px;
+        color:Black !important;
+        font-family:'Lucida Grande',' Lucida Sans Unicode',' Lucida Sans',' Verdana',' Tahoma',' sans-serif';
+        font-size:14px;
+    }
+    .form-radio-item label, .form-checkbox-item label, .form-grading-label, .form-header{
+        color:Black;
+    }
+
+</style>
+<head>
+<meta charset="UTF-8">
+    
+		<title>$form.getChild("Titulo").getText()</title>
+	</head>
+	
+<link type="text/css" rel="stylesheet" href="http://jotformz.com/css/styles/buttons/form-submit-button-light.css?3.2.1611"/>
+<form class="jotform-form" action="" method="post" name="form_41177387699675" id="41177387699675" accept-charset="utf-8">
+  <input type="hidden" name="formID" value="41177387699675" />
+  <div class="form-all">
+    <ul class="form-section">
+      <li id="cid_1" class="form-input-wide">
+        <div class="form-header-group">
+          <h1 id="header_1" style="font-family:Verdana;font-size:32px">
+            $form.getChild("Titulo").getText()
+          </h1>
+          <div id="subHeader_1" style="font-family:Verdana;font-size:12px">
+            Objetivo geral do formulário
+          </div>
+        </div>
+      </li>
+	  
+	  #foreach ($child in $componentes.getChildren())
+	    
+		#if($child.getChild("tipo").getText() == "tcEdit")
+			<li class="form-line" >
+			<label class="form-label-left" id="$child.getChild("nome").getText()" for="input_4">
+			  $child.getChild("descricao").getText()
+			  #if($child.getChild("obrigatorio").getText() == "sim")
+			  	<span class="form-required">*</span>
+			  #end	
+			</label>
+			<div class="form-input">
+				<span class="form-sub-label-container">
+					<input class="form-textbox validate[required]" type="text" size="10" name="$child.getChild("nome").getText()" " />
+				</span>
+			</div>
+		  </li>
+		#else
+			#if($child.getChild("tipo").getText() == "tcMemo")
+  '				<li class="form-line" >
+					<label class="form-label-left" > $child.getChild("descricao").getText() </label>
+					<div class="form-input">
+					<textarea id="input_14" class="form-textarea" name="$child.getChild("nome").getText()" cols="60" rows="10"></textarea>
+					</div>
+				</li>
+				
+			#else 
+				<li class="form-line" >
+				<div class="form-input">
+				  <div class="form-single-column">
+					<span class="form-checkbox-item" style="clear:left;">
+					  <input type="checkbox" class="form-checkbox" name="$child.getChild("nome").getText()" value="Op��o 1" />
+					  <label for="input_17_0"> $child.getChild("descricao").getText() </label></span>
+					<span class="clearfix"></span>
+				  </div>
+				</div>
+			  </li>
+			#end	
+		#end	
+	#end
+
+      <li class="form-line" id="id_15">
+        <div id="cid_15" class="form-input-wide">
+          <div style="margin-left:156px" class="form-buttons-wrapper">
+            <button id="input_15" type="submit" class="form-submit-button form-submit-button-light">
+              Salvar
+            </button>
+			<button id="input_15" type="submit" class="form-submit-button form-submit-button-light">
+              Cancelar
+            </button>
+			<button id="input_15" type="submit" class="form-submit-button form-submit-button-light">
+              Sair
+            </button>
+          </div>
+        </div>
+      </li>
+      <li style="display:none">
+        Should be Empty:
+        <input type="text" name="website" value="" />
+      </li>
+    </ul>
+  </div>
+  <input type="hidden" id="simple_spc" name="simple_spc" value="41177387699675" />
+  <script type="text/javascript">
+  document.getElementById("si" + "mple" + "_spc").value = "41177387699675-41177387699675";
+  </script>
+</form>

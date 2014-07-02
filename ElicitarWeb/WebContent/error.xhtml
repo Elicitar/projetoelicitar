@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Erro da aplicação</title>
+	<style>
+	.semBorda tr, .semBorda td {  
+    border: none !important;  
+} 
+	</style>
+</h:head>
+
+<h:body>
+	<ui:composition template="/template.xhtml">
+		<ui:define name="conteudo">
+			<h:form>
+
+				<p:panelGrid columns="2" styleClass="semBorda">
+					<p:graphicImage id="errorImage"
+						value="/images/geral/msg-erro-robo.jpg" />
+					<p:panelGrid columns="1" styleClass="semBorda">
+						<p:outputLabel
+							style="color:rgb(55,120,200); font-weight:bold;font-size:large">Erro no servidor</p:outputLabel>
+						<p:outputLabel style="color:rgb(55,120,200); font-size:medium">Ocorreu um erro  inexperado no servidor. Estamos trabalhando para tratá-lo.</p:outputLabel>
+						<p:outputLabel style="color:rgb(55,120,200); font-size:medium">Preencha seu e-mail para que possamos informá-lo quando esta situação estiver estabilizada.</p:outputLabel>
+						<p:panelGrid columns="2" styleClass="semBorda">
+							<p:outputLabel>Solitação:</p:outputLabel>
+							<p:outputLabel value="#{erroBean.solicitacao}" />
+							<p:outputLabel>Seu nome:</p:outputLabel>
+							<p:inputText value="#{erroBean.nomeAnalista}"></p:inputText>
+							<p:outputLabel>E-mail:</p:outputLabel>
+							<p:inputText value="#{erroBean.emailAnalista}"></p:inputText>
+							<p:outputLabel>Mensagem de feedback</p:outputLabel>
+							<p:inputTextarea value="#{erroBean.feedback}"></p:inputTextarea>
+							<p:commandButton value="Enviar" action="#{erroBean.enviarEmail}" />
+							<p:commandButton value="Inicio" action="#{erroBean.inicio}" />
+						</p:panelGrid>
+					</p:panelGrid>
+				</p:panelGrid>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

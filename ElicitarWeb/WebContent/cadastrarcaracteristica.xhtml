@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Cadastrar caracteristica</title>
+</h:head>
+<h:body>
+	<ui:composition template="/template.xhtml">
+		<ui:define name="conteudo">
+
+			<h:form id="frmCadCar">
+				<p:messages id="messages" showDetail="true" autoUpdate="true"
+					closable="true" />
+				<p:panel id="pnCadCar" header="Cadastrar" style="width:100%">
+					<h:panelGrid id="pnGrCadCar" columns="2" style="margin-bottom:10px"
+						cellpadding="1">
+						<p:outputLabel id="lbTipCar">Tipo de caracteristica</p:outputLabel>
+						<p:selectOneMenu id="cbTipReq"
+							value="#{cadastrarCaracteristicaBean.caracteristica}">
+							<f:selectItem itemLabel="selecione ..." itemValue="" />
+							<f:selectItems
+								value="#{cadastrarCaracteristicaBean.todasCaracteristicas}" />
+							<f:valueChangeListener type="beans.CadastrarCaracteristicaBean" />
+							<p:ajax />
+						</p:selectOneMenu>
+						<p:outputLabel id="lbNomeCar">característica</p:outputLabel>
+						<p:inputText cols="100" id="edcar"
+							value="#{cadastrarCaracteristicaBean.caracteristica}"></p:inputText>
+						<p:commandButton value="Salvar"
+							action="#{cadastrarCaracteristicaBean.salvar}" id="btnSalvar"
+							update="frmCadCar" onstart="" />
+					</h:panelGrid>
+				</p:panel>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
