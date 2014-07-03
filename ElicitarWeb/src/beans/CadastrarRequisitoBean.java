@@ -112,6 +112,8 @@ public class CadastrarRequisitoBean implements Serializable{
 			r = StaticBase.tratadorDeArquivo.getRequisitoByName(name);
 			if (r != null){
 				r.assign(actualReq);
+			}else{
+				StaticBase.tratadorDeArquivo.getRequisitos().add(actualReq);
 			}
 			ReqDB.getInstance().addReqToDB(actualReq);			
 			
