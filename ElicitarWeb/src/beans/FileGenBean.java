@@ -17,7 +17,6 @@ import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 
 import requirementExtract.StaticBase;
-import requirements.ConstsRequisitos;
 import requirements.RequisitoBase;
 import requirements.TipoDeRequisito;
 import exceptions.TipoDeReqisitoInvalidoException;
