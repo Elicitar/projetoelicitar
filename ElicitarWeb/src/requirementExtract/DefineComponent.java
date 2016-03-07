@@ -1,12 +1,10 @@
 package requirementExtract;
 
-import patterns.AbstractPattern;
-import patterns.TipoDeDado;
-import requirements.RequisitoBase;
 import components.AbstractComponent;
 import components.Checkbox;
 import components.Edit;
 import components.Memo;
+import patterns.AbstractPattern;
 
 public class DefineComponent {
 	static DefineComponent define;

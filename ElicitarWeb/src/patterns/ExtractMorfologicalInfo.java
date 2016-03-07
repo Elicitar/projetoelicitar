@@ -75,8 +75,6 @@ public class ExtractMorfologicalInfo {
 	public String getMorfologicalText(String text) {
 		analyzeText(text);
 		String fulltext = "";
-		StringBuffer sb = new StringBuffer();
-
 		for (Sentence sentence : document.getSentences()) {
 			for (Token token : sentence.getTokens()) {
 				String lexeme = token.getLexeme();
