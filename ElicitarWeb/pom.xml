@@ -48,7 +48,7 @@
   	<dependency>
   		<groupId>com.google.guava</groupId>
   		<artifactId>guava</artifactId>
-  		<version>13.0.1</version>
+  		<version>32.0.0-android</version>
   	</dependency>
   	<dependency>
 		<groupId>antlr</groupId>
@@ -68,7 +68,7 @@
 	<dependency>
 		<groupId>org.cogroo</groupId>
 		<artifactId>cogroo-nlp</artifactId>
-		<version>4.0.0</version>
+		<version>4.2.0</version>
 	</dependency>
 	<dependency>
 		<groupId>org.cogroo</groupId>
